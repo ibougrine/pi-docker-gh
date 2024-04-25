@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registra't</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #fff;
+      color: #141616;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 90vh;
+    }
+
+    .form-container {
+      max-width: 400px;
+    }
+
+    /* Hacer los campos de entrada más grandes */
+    .form-control {
+      height: 50px; /* Ajusta la altura según tu preferencia */
+      width: 400px; /* Ajusta la altura según tu preferencia */
+      font-size: 1rem; /* Ajusta el tamaño de la fuente según tu preferencia */
+    }
+
+    /* Estilo del footer */
+    #footer {
+      background-color: #141616;
+      color: white;
+      text-align: center;
+      padding: 18px;
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<div class="form-container">
+  <h2 class="text-center">Registra't</h2>
+  <form id="registerForm">
+    <div class="form-group">
+      <label for="registerName">Nom</label>
+      <input type="text" class="form-control" id="registerName" name="nom" placeholder="Introdueix el teu nom complet">
+    </div>
+    <div class="form-group">
+      <label for="registerEmail">Correu eletrònic</label>
+      <input type="email" class="form-control" id="registerEmail" name="email" aria-describedby="emailHelp" placeholder="Introdueix el teu correu eletrònic">
+    </div>
+    <div class="form-group">
+      <label for="registerLocation">Localització</label>
+      <input type="text" class="form-control" id="registerLocation" name="localitzacio" placeholder="Introdueix la teva localització">
+    </div>
+    <div class="form-group">
+      <label for="registerPassword">Contrasenya</label>
+      <input type="password" class="form-control" id="registerPassword" name="password" placeholder="Introdueix la teva contrasenya">
+    </div>
+    <div class="form-group">
+      <label for="confirmRegisterPassword">Confirmar Contrasenya</label>
+      <input type="password" class="form-control" id="confirmRegisterPassword" name="password_confirmation" placeholder="Confirma la teva contrasenya">
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">Registra't</button>
+    <p class="text-center mt-3 mb-0">Ja tens un compte? <a href="index.html">Inicia sessió aquí</a></p>
+  </form>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="registrationModal" tabindex="-1" role="dialog" aria-labelledby="registrationModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="registrationModalLabel">Registre Exitós</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <!-- SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="256" height="256" viewBox="0 0 256 256" xml:space="preserve">
+          <defs></defs>
+          <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)" >
+            <polygon points="37.95,64.44 23.78,50.27 30.85,43.2 37.95,50.3 59.15,29.1 66.22,36.17 " style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,158,4); fill-rule: nonzero; opacity: 1;" transform="  matrix(1 0 0 1 0 0) "/>
+            <path d="M 45 90 C 20.187 90 0 69.813 0 45 C 0 20.187 20.187 0 45 0 c 24.813 0 45 20.187 45 45 C 90 69.813 69.813 90 45 90 z M 45 10 c -19.299 0 -35 15.701 -35 35 s 15.701 35 35 35 s 35 -15.701 35 -35 S 64.299 10 45 10 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,158,4); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+          </g>
+        </svg>
+        <br><br>
+        <p class="font-size: 40px;">Registre exitós!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tancar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer id="footer">
+    2024 - Institut Rafael Campalans
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('#registerForm').submit(function(e) {
+      e.preventDefault();
+      var nom = $('#registerName').val();
+      var email = $('#registerEmail').val();
+      var localitzacio = $('#registerLocation').val();
+      var password = $('#registerPassword').val();
+      var confirmPassword = $('#confirmRegisterPassword').val();
+      
+      // Comprueba si las contraseñas coinciden
+      if (password !== confirmPassword) {
+        console.error('Las contraseñas no coinciden');
+        return;
+      }
+
+      $.ajax({
+        url: 'http://10.2.48.42:8000/public/api/register', // Ruta del controlador de registro
+        method: 'POST',
+        data: {nom: nom, email: email, localitzacio: localitzacio, password: password, password_confirmation: confirmPassword},
+        success: function(response) {
+          // Muestra el modal de registro exitoso
+          $('#registrationModal').modal('show');
+          // Redirige a index.html después de 2 segundos
+          setTimeout(function() {
+            window.location.href = "index.html";
+          }, 2000);
+          // Manejar la respuesta del servidor aquí (redirigir, mostrar mensaje, etc.)
+          console.log(response);
+        },
+        error: function(xhr, status, error) {
+          // Manejar errores aquí
+          console.error(error);
+          alert('Error en el registro: ' + xhr.responseJSON.message);
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>

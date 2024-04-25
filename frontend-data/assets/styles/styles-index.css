@@ -1,0 +1,53 @@
+.navbar-brand {
+    font-size: 20px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+}
+
+svg {
+    margin-right: 5px;
+}
+
+#menu {
+    background-color: #141616; /* Ejemplo de color naranja */
+}
+
+#opcio {
+    border-bottom: solid 1px white;
+}
+
+#text {
+    color: white;
+}
+
+#titol {
+    color: white;
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s;
+}
+
+.nav-link svg {
+    transition: transform 0.7s;
+}
+
+.nav-link:hover svg {
+    transform: rotate(360deg);
+}
+
+/* Estilo del footer */
+#footer {
+    background-color: #141616;
+    color: white;
+    text-align: center;
+    padding: 18px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
